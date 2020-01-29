@@ -9,8 +9,10 @@ Statistics of the data, such as the most frequent times of travel, most popular 
 will then be provided. Lastly, users will have the option to see the raw data which will be presented per 5 lines.
 Users will also be prompted to restart the program to explore more data if interested.
 
-### Files used
-bikeshare.py    
+### Files Used
+##### Executable File
+bikeshare.py
+##### Data Files
 chicago.csv    
 new_york_city.csv    
 washington.csv

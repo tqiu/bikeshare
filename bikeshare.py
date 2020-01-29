@@ -21,8 +21,8 @@ def get_filters():
     while True:
         try:
             city = input('Which city do you like to analyze? Please choose a city from chicago, '
-                         'new york city, or washington: ')
-            if city.lower() not in CITY_DATA.keys():
+                         'new york city, or washington: ').lower()
+            if city not in CITY_DATA.keys():
                 raise ValueError
             break
         except ValueError:
@@ -33,8 +33,8 @@ def get_filters():
     while True:
         try:
             month = input('Which month do you like to analyze? Please enter a month name from january to june, '
-                          'or "all" to select all months: ')
-            if month.lower() not in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
+                          'or "all" to select all months: ').lower()
+            if month not in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
                 raise ValueError
             break
         except ValueError:
@@ -45,8 +45,8 @@ def get_filters():
     while True:
         try:
             day = input('Which day of week do you like to analyze? Please enter a weekday name from monday to sunday, '
-                        'or "all" to select the entire week: ')
-            if day.lower() not in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']:
+                        'or "all" to select the entire week: ').lower()
+            if day not in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']:
                 raise ValueError
             break
         except ValueError:
@@ -54,7 +54,7 @@ def get_filters():
 
 
     print('-'*40)
-    return city.lower(), month.lower(), day.lower()
+    return city, month, day
 
 
 
@@ -219,14 +219,14 @@ def print_lines(df):
     gen_fun = print_lines_generator(df)
     while True:
         try:
-            lines = input('Do you want to see 5 lines of raw data? Please type yes or no: ')
-            if lines.lower() == 'yes':
+            lines = input('Do you want to see 5 lines of raw data? Please type yes or no: ').lower()
+            if lines == 'yes':
                 try:
                     print(next(gen_fun))
                 except StopIteration:
                     print('You have reached the end of this file. Exiting...')
                     break
-            elif lines.lower() == 'no':
+            elif lines == 'no':
                 break
             else:
                 raise ValueError
@@ -238,9 +238,9 @@ def get_restart_prompt():
     """ This function is used to prompt for user input about whether to restart the program """
     while True:
         try:
-            restart = input('\nWould you like to restart? Enter yes or no.\n')
-            if restart.lower() in ['yes' , 'no']:
-                return restart.lower()
+            restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
+            if restart in ['yes' , 'no']:
+                return restart
             else:
                 raise ValueError
         except ValueError:

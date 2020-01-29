@@ -109,11 +109,16 @@ def time_stats(df):
     if len(df['month'].unique()) > 1:
         max_idx = df.groupby('month')['Start Time'].count().idxmax() - 1
         print('The most popular month of travel is', months[max_idx])
+    else:
+        max_idx = df['month'].values[0] - 1
+        print("You have filtered the data to contain only month {}".format(months[max_idx].title()))
 
     # display the most common day of week
     if len(df['day_of_week'].unique()) > 1:
         print('The most popular day of week of travel is',
               df.groupby('day_of_week')['Start Time'].count().idxmax())
+    else:
+        print("You have filtered the data to contain only {}".format(df['day_of_week'].values[0]))
 
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour

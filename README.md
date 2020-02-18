@@ -29,3 +29,7 @@ https://thispointer.com
 ### How to execute the program
 To execute the script, simply type the following command in your command line:  
 `python bikeshare.py`
+
+### GitHub link
+You can also find this project on GitHub by clicking the following link:
+https://github.com/tqiu/bikeshare
